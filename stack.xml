@@ -1,0 +1,8 @@
+<stack>
+  <description brief="labo robot stack">labo</description>
+  <author>Yam Geva</author>
+  <license>BSD</license>  
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/labo</url>
+  <depend stack="ros" />
+</stack>

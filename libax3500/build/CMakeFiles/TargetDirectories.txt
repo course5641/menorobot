@@ -1,0 +1,2 @@
+/home/yam/ros_workspace/labo/libax3500/build/CMakeFiles/ax3500.dir
+/home/yam/ros_workspace/labo/libax3500/build/CMakeFiles/uninstall.dir

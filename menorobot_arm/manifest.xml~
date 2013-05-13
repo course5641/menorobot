@@ -1,0 +1,18 @@
+<package>
+  <description brief="komodo_arm">
+
+     komodo_arm package
+
+  </description>
+  <author>RoboTiCan</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/komodo_arm</url>
+  <depend package="std_msgs"/>
+  <depend package="rospy"/>
+  <depend package="roscpp"/>
+  <depend package="dynamixel_controllers"/>
+  <depend package="urdf"/>
+</package>
+
+

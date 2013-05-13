@@ -1,0 +1,86 @@
+base_rotation_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: base_rotation_joint
+    joint_speed: 0.1
+    max_torque: 0.9
+    motor:
+        id: 1
+        init: 512
+        min: 0
+        max: 1023
+
+shoulder_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: shoulder_joint
+    joint_speed: 0.1
+    max_torque: 0.9
+    motor:
+        id: 2
+        init: 512
+        min: 400
+        max: 870
+
+elbow_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: elbow_joint
+    joint_speed: 0.3
+    max_torque: 0.9
+    motor:
+        id: 3
+        init: 512
+        min: 160
+        max: 870
+
+wrist_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: wrist_joint
+    joint_speed: 0.3
+    max_torque: 0.9
+    motor:
+        id: 4
+        init: 512
+        min: 0
+        max: 950
+
+
+right_finger_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: right_finger_joint
+    joint_speed: 0.5
+    max_torque: 0.1
+    motor:
+        id: 6
+        init: 512
+        min: 504
+        max: 794
+
+left_finger_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: left_finger_joint
+    joint_speed: 0.5
+    max_torque: 0.1
+    motor:
+        id: 5
+        init: 512
+        min: 226
+        max: 523
+
+

@@ -1,0 +1,361 @@
+<robot
+  name="menorobot_arm">
+  <link
+    name="arm_base_link">
+    <inertial>
+      <origin
+        xyz="1.91879319000182E-14 0.0149757573728181 1.30831871085679E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.0100550254675802" />
+      <inertia
+        ixx="1.69820016286092E-06"
+        ixy="2.01261986400258E-20"
+        ixz="1.17142290633904E-18"
+        iyy="3.96221114093814E-06"
+        iyz="1.03384628484436E-09"
+        izz="4.46799312952596E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://menorobot_arm/meshes/arm_base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://menorobot_arm/meshes/arm_base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="base_rotation">
+    <inertial>
+      <origin
+        xyz="0.0205666980010871 0.0415000000000002 0.000514826190457321"
+        rpy="0 0 0" />
+      <mass
+        value="0.127929281640091" />
+      <inertia
+        ixx="0.000131316495270371"
+        ixy="1.94594020893845E-06"
+        ixz="2.77333288631198E-08"
+        iyy="2.09080120563385E-05"
+        iyz="1.94594020893845E-06"
+        izz="0.000131316495270371" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://menorobot_arm/meshes/base_rotation.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://menorobot_arm/meshes/base_rotation.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_rotation_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.0257884758084556 0"
+      rpy="1.5707963267949 -6.12303176911189E-17 1.5707963267949" />
+    <parent
+      link="arm_base_link" />
+    <child
+      link="base_rotation" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="shoulder">
+    <inertial>
+      <origin
+        xyz="-0.000162318726515218 0.0670574294931692 -0.00029231872651517"
+        rpy="0 0 0" />
+      <mass
+        value="0.0507586514657532" />
+      <inertia
+        ixx="0.000102409825452202"
+        ixy="-5.3297779721394E-07"
+        ixz="4.76406568016614E-10"
+        iyy="2.48882155351848E-05"
+        iyz="-3.22788608615284E-07"
+        izz="9.02855659435373E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://menorobot_arm/meshes/shoulder.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://menorobot_arm/meshes/shoulder.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="shoulder_joint"
+    type="continuous">
+    <origin
+      xyz="0.0210815241915444 0.0830000000000002 0"
+      rpy="1.22460635382238E-16 2.46519032881566E-32 -7.49830360911069E-33" />
+    <parent
+      link="base_rotation" />
+    <child
+      link="shoulder" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="elbow">
+    <inertial>
+      <origin
+        xyz="0.000710215251779244 0.0402266781971522 0.0153611574746248"
+        rpy="0 0 0" />
+      <mass
+        value="0.144465628501558" />
+      <inertia
+        ixx="0.00015744370235381"
+        ixy="2.25777799405982E-06"
+        ixz="1.80095416904009E-06"
+        iyy="7.33577180850791E-05"
+        iyz="5.08783893703287E-05"
+        izz="0.000112633396826377" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://menorobot_arm/meshes/elbow.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://menorobot_arm/meshes/elbow.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="elbow_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.1335 -0.000130000000000013"
+      rpy="3.14159265358979 -1.5707963267949 3.14159265358979" />
+    <parent
+      link="shoulder" />
+    <child
+      link="elbow" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="wrist">
+    <inertial>
+      <origin
+        xyz="0.00120272786489395 0.0344306582505975 -0.000868856924944637"
+        rpy="0 0 0" />
+      <mass
+        value="0.147384982382229" />
+      <inertia
+        ixx="5.36053105115899E-05"
+        ixy="1.51610024592716E-07"
+        ixz="-1.2157730682374E-08"
+        iyy="7.46582174432151E-05"
+        iyz="-8.42565225861921E-07"
+        izz="9.76702585294648E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://menorobot_arm/meshes/wrist.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://menorobot_arm/meshes/wrist.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wrist_joint"
+    type="continuous">
+    <origin
+      xyz="0.00150000000000013 0.0813699749999998 0.0463699999999997"
+      rpy="0 0 -4.36391374425415E-16" />
+    <parent
+      link="elbow" />
+    <child
+      link="wrist" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="right_finger">
+    <inertial>
+      <origin
+        xyz="-0.000151371142906034 0.000935845560432531 -0.044276000091404"
+        rpy="0 0 0" />
+      <mass
+        value="0.0480811535085288" />
+      <inertia
+        ixx="2.47910111127092E-05"
+        ixy="1.4849861915058E-08"
+        ixz="-2.3627249934589E-09"
+        iyy="2.77798865720319E-05"
+        iyz="-1.06748481853198E-06"
+        izz="9.44897318313353E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://menorobot_arm/meshes/right_finger.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://menorobot_arm/meshes/right_finger.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_finger_joint"
+    type="continuous">
+    <origin
+      xyz="-0.0147499999999999 0.051500025 0"
+      rpy="1.5707963267949 1.5707963267949 0" />
+    <parent
+      link="wrist" />
+    <child
+      link="right_finger" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="left_finger">
+    <inertial>
+      <origin
+        xyz="-0.000108628857094848 0.0163141544395675 -0.045776025091404"
+        rpy="0 0 0" />
+      <mass
+        value="0.0480811535085288" />
+      <inertia
+        ixx="2.47910111127093E-05"
+        ixy="1.48498619150544E-08"
+        ixz="2.36272499342004E-09"
+        iyy="2.77798865720319E-05"
+        iyz="1.06748481853197E-06"
+        izz="9.44897318313353E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://menorobot_arm/meshes/left_finger.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://menorobot_arm/meshes/left_finger.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_finger_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.05 0"
+      rpy="1.5707963267949 1.5707963267949 0" />
+    <parent
+      link="wrist" />
+    <child
+      link="left_finger" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+</robot>

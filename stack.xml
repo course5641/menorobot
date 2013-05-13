@@ -1,8 +1,8 @@
 <stack>
-  <description brief="labo robot stack">labo</description>
+  <description brief="menorobot stack">menorobot</description>
   <author>Yam Geva</author>
   <license>BSD</license>  
   <review status="unreviewed" notes=""/>
-  <url>http://ros.org/wiki/labo</url>
+  <url>http://ros.org/wiki/menorobot</url>
   <depend stack="ros" />
 </stack>

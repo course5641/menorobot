@@ -1,13 +1,13 @@
 <package>
-  <description brief="labo_rover">
+  <description brief="menorobot_rover">
 
-     labo_rover
+     menorobot_rover
 
   </description>
   <author>yam</author>
   <license>BSD</license>
   <review status="unreviewed" notes=""/>
-  <url>http://ros.org/wiki/labo_rover</url>
+  <url>http://ros.org/wiki/menorobot_rover</url>
   <depend package="std_msgs"/>
   <depend package="sensor_msgs"/>
   <depend package="nav_msgs"/>

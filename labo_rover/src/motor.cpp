@@ -42,7 +42,7 @@ public:
   double right;
 };
 
-class laboMotor{
+class menorobotMotor{
   AX3500 ax3500;
   ros::Subscriber vel_sub;
   ros::Publisher odom_pub;
@@ -69,15 +69,15 @@ class laboMotor{
 
 
 public:
-  laboMotor(int _refreshRate);
-  ~laboMotor();
+  menorobotMotor(int _refreshRate);
+  ~menorobotMotor();
   void setStationaryPose(double x, double y, double theta);
   void setMotorSpeed(const geometry_msgs::Twist::ConstPtr& msg);
   void refresh();
   void initMotorController();
 };
 
-laboMotor::laboMotor(int _refreshRate) :
+menorobotMotor::menorobotMotor(int _refreshRate) :
     refreshRate(_refreshRate),
     wheelbase(0.569 /* m */), wheelDiameter(0.361 /* m */), motor_gain(20.585),
     x(0), y(0), theta(0),
@@ -87,7 +87,7 @@ laboMotor::laboMotor(int _refreshRate) :
 {
 
   ros::NodeHandle n;
-  vel_sub = n.subscribe("/cmd_vel", 1000, &laboMotor::setMotorSpeed, this);
+  vel_sub = n.subscribe("/cmd_vel", 1000, &menorobotMotor::setMotorSpeed, this);
  // custom_odom_pub = n.advertise<glados::odometry>("/odometry", 1000);
   odom_pub = n.advertise<nav_msgs::Odometry>("odom", 50);
   //wheelspeed_pub = n.advertise<glados::wheelspeed>("wheelspeed", 50);
@@ -112,12 +112,12 @@ laboMotor::laboMotor(int _refreshRate) :
   ax3500.ResetEncoder(AX3500::ENCODER_BOTH);
 }
 
-laboMotor::~laboMotor()
+menorobotMotor::~menorobotMotor()
 {
   ax3500.Close();
 }
 
-void laboMotor::setMotorSpeed(const geometry_msgs::Twist::ConstPtr& msg)
+void menorobotMotor::setMotorSpeed(const geometry_msgs::Twist::ConstPtr& msg)
 {
   cout << "Got motor speed: " << msg->linear.x << ", " << msg->angular.z << endl;
   // Convert Twist msg into the robot's base-local coordinate frame "base_footprint"
@@ -132,7 +132,7 @@ void laboMotor::setMotorSpeed(const geometry_msgs::Twist::ConstPtr& msg)
   ax3500.SetSpeed(AX3500::CHANNEL_STEERING, -linear);
 }
 
-void laboMotor::refresh()
+void menorobotMotor::refresh()
 {
   // Avoid a divide by zero by zero
   if (!time_inited)
@@ -257,7 +257,7 @@ void laboMotor::refresh()
   }
 }
 
-void laboMotor::setStationaryPose(double new_x, double new_y, double new_theta)
+void menorobotMotor::setStationaryPose(double new_x, double new_y, double new_theta)
 {
   x = new_x;
   y = new_y;
@@ -291,7 +291,7 @@ int main(int argc, char **argv)
   ros::Time::init();
   ros::Rate r(refreshRate);
   
-  laboMotor motorNodeH(refreshRate);
+  menorobotMotor motorNodeH(refreshRate);
 
   while (ros::ok()) {
     motorNodeH.refresh();
